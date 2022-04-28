@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.sql.*;
 import java.util.*;
 
 class RecordInserted
@@ -8,6 +9,7 @@ class RecordInserted
 	{
 		Connection con=null;
 		PreparedStatement pst=null;
+		Scanner sc=new Scanner(System.in);
 		try{
 			String url="jdbc:mysql://127.0.0.1:3306/d1210";
 			String username="root";
@@ -24,7 +26,7 @@ class RecordInserted
 				pst.setString(1,user);
 				pst.setString(2,email);
 				pst.executeUpdate();
-				System.out.prinln("Record Inserted");
+				System.out.println("Record Inserted");
 			con.close();
 		}
 
