@@ -1,0 +1,28 @@
+import java.sql.*;
+
+class mydatabase
+{
+
+	public static void main(String[]args)
+	{
+		try{
+		Connection con=null;
+		PreparedStatement st=null;
+		String url="jdbc:mysql://127.0.0.1:3306/d1210";
+		String username="root";
+		String password="root123";
+		Scanner sc=new Scanner(System.in);
+		con=DriverManager.getConnection(url,username,password);
+		if(con!=null)
+		{
+			System.out.println("Database Connected");
+			con.close();
+		}
+
+		}
+		catch(Exception ex){ex.printStackTrace();}
+
+		
+	}
+
+}
