@@ -1,0 +1,40 @@
+import java.sql.*;
+import java.util.*;
+
+class CreaeTable
+{
+
+	public static void main(String[]args)
+	{
+		try{
+		Connection con=null;
+		PreparedStatement pst=null;
+		String url="jdbc:mysql://127.0.0.1:3306/d1210";
+		String username="root";
+		String password="root123";
+		Scanner sc=new Scanner(System.in);
+		con=DriverManager.getConnection(url,username,password);
+		if(con!=null)
+		{
+			System.out.println("Database Connected");
+
+			String query="create table signuptbl1"
+				+"("
+				+"id INT NOT NULL AUTO_INCREMENT,"
+				+"emailid varchar(100) not null,"
+				+"username varchar(100) not null,"
+				+"PRIMARY KEY(id)"
+				+")";
+				pst=con.prepareStatement(query);
+				pst.executeUpdate();
+				System.out.prinln("Table Created");
+			con.close();
+		}
+
+		}
+		catch(Exception ex){ex.printStackTrace();}
+
+		
+	}
+
+}
