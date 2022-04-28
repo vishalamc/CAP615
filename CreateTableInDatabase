@@ -18,7 +18,7 @@ class CreateTable
 		{
 			System.out.println("Database Connected");
 
-			String query="create table signuptbl2"
+			String query="create table signuptbl1"
 				+"("
 				+"id INT NOT NULL AUTO_INCREMENT,"
 				+"emailid varchar(100) not null,"
