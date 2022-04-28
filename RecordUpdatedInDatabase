@@ -1,7 +1,8 @@
 import java.sql.*;
+import java.sql.*;
 import java.util.*;
 
-class RecordUpdated
+class RecordInserted
 {
 
 	public static void main(String[]args)
@@ -10,17 +11,22 @@ class RecordUpdated
 		PreparedStatement pst=null;
 		Scanner sc=new Scanner(System.in);
 		try{
-		String query="update signuptbl1 set emailid=? where username=?";
-			System.out.println("Enter userName");
-			String user=sc.nextLine();
-			System.out.println("Enter Emaild id");
-			String email=sc.nextLine();
-			pst=con.prepareStatement(query);
-			pst.setString(1,email);
-			pst.setString(2,user);
-			pst.executeUpdate();
-			System.out.println("Data Updated");
-				
+			String url="jdbc:mysql://127.0.0.1:3306/d1210";
+			String username="root";
+			String password="root123";
+			con=DriverManager.getConnection(url,username,password);
+			if(con!=null)
+			{
+				String query="insert into signuptbl1(username,emailid) values(?,?)";
+				System.out.println("Enter userName");
+				String user=sc.nextLine();
+				System.out.println("Enter Emaild id for update");
+				String email=sc.nextLine();
+				pst=con.prepareStatement(query);
+				pst.setString(1,user);
+				pst.setString(2,email);
+				pst.executeUpdate();
+				System.out.println("Record Inserted");
 			con.close();
 		}
 
