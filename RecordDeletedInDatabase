@@ -10,7 +10,13 @@ class RecordDelete
 		PreparedStatement pst=null;
 		Scanner sc=new Scanner(System.in);
 		try{
-		String query="delete from signuptbl1 where username=?";
+			String url="jdbc:mysql://127.0.0.1:3306/d1210";
+			String username="root";
+			String password="root123";
+			con=DriverManager.getConnection(url,username,password);
+			if(con!=null)
+			{
+			String query="delete from signuptbl1 where username=?";
 			System.out.println("Enter userName");
 			String user=sc.nextLine();
 			pst=con.prepareStatement(query);
@@ -19,9 +25,9 @@ class RecordDelete
 			System.out.println("Record deleted");
 				
 			con.close();
-		}
+			}
 
-		}
+		    }
 		catch(Exception ex){ex.printStackTrace();}
 
 		
