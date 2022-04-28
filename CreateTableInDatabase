@@ -1,7 +1,7 @@
 import java.sql.*;
-import java.util.*;
 
-class CreaeTable
+
+class CreateTable
 {
 
 	public static void main(String[]args)
@@ -12,13 +12,13 @@ class CreaeTable
 		String url="jdbc:mysql://127.0.0.1:3306/d1210";
 		String username="root";
 		String password="root123";
-		Scanner sc=new Scanner(System.in);
+		
 		con=DriverManager.getConnection(url,username,password);
 		if(con!=null)
 		{
 			System.out.println("Database Connected");
 
-			String query="create table signuptbl1"
+			String query="create table signuptbl2"
 				+"("
 				+"id INT NOT NULL AUTO_INCREMENT,"
 				+"emailid varchar(100) not null,"
@@ -27,7 +27,7 @@ class CreaeTable
 				+")";
 				pst=con.prepareStatement(query);
 				pst.executeUpdate();
-				System.out.prinln("Table Created");
+				System.out.println("Table Created");
 			con.close();
 		}
 
