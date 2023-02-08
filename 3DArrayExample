@@ -1,0 +1,46 @@
+import java.util.*;
+
+class Department3D
+{
+
+
+	public static void main(String []args)
+	{
+		int [][][]marks=new int[3][3][3];
+		int []sum=new int[3];
+		Scanner sc=new Scanner(System.in);
+		
+		for(int i=0;i<3;i++)
+		{
+			System.out.println("Enter Marks for Department "+(i+1));
+			for(int j=0;j<3;j++)
+			{
+				System.out.println("Enter Marks for Student "+(j+1));
+				for(int k=0;k<3;k++)
+				{
+					marks[i][j][k]=sc.nextInt();
+				}
+			}
+			
+		}
+		System.out.println("Final Result");
+		for(int i=0;i<3;i++)
+		{
+			System.out.println("Total Marks for Department "+(i+1));
+			for(int j=0;j<3;j++)
+			{
+				for(int k=0;k<3;k++)
+				{
+					sum[i]=sum[i]+marks[i][j][k];
+				}
+				System.out.println("Total Marks for Student-"+(j+1)+" "+sum[i]);
+				sum[i]=0;
+			}
+			
+			
+		}
+		
+	}
+
+}
+
