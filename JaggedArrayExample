@@ -1,0 +1,38 @@
+import java.util.*;
+class JaggedArray
+{
+	public static void main(String []args)
+	{
+	int i,j;
+	Scanner sc=new Scanner(System.in);
+	int [][]num=new int[3][];
+	num[0]=new int[1];
+	num[1]=new int[2];
+	num[2]=new int[3];
+	System.out.println("Enter array elements");
+	for(i=0;i<num.length;i++)
+	{
+		for(j=0;j<num[i].length;j++)
+		{
+
+		num[i][j]=sc.nextInt();
+
+		}
+
+	}
+	System.out.println("array elements are:");
+
+	for(int []data1:num)
+		{
+			for(int data2:data1)
+			{
+			System.out.print(data2);
+
+			}
+			System.out.println();
+
+		}
+
+	}
+
+}
