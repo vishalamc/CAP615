@@ -1,0 +1,70 @@
+import java.util.*;
+
+class StringClassMethodsEx
+{
+
+	public static void main(String []args)
+	{
+		String str1=new String("Hello");
+		String str2=new String("World");
+		String str3=new String("Hello123");
+		String str4=new String("hello");
+		String name ="President George Washington";
+
+
+		System.out.println("Length of Hello is: "+str1.length());
+		System.out.println("Concatenation of String is: "+str1.concat(str2));
+		System.out.println("charAt(4) in Hello is: "+str1.charAt(4));
+		System.out.println("substring(2,5) in Hello is: "+str1.substring(2,5));
+		System.out.println("substring(3) in Hello is: "+str1.substring(3));
+
+
+		System.out.println(name.indexOf ('P'));
+		System.out.println(name.indexOf ('e'));		      
+		System.out.println(name.indexOf ("George"));	   
+		System.out.println(name.indexOf ('e', 3));
+		System.out.println(name.indexOf ("Bob"));
+		
+		if(str1.equals(str4))
+		{
+			System.out.println("Strings are equal");
+		}
+		else
+		{
+			System.out.println("Strings are not equal");
+		}
+		
+		if(str1.equalsIgnoreCase(str4))
+		{
+			System.out.println("Strings are equal");
+		}
+		else
+		{
+			System.out.println("Strings are not equal");
+		}
+		System.out.println(str1.compareTo(str4));
+		System.out.println(str1.compareToIgnoreCase(str4));
+
+		System.out.println("hello".toUpperCase());
+
+		System.out.println("HELLO".toLowerCase());
+
+		String word1 = "    Hi Kumar ";
+		System.out.println(word1.trim());
+
+		String str11="hello hello hello";
+      	                  String str22="hello hello hello";
+
+      		 str11=str11.replace('h', 'H');
+     		  str22=str22.replace("hello", "hi");
+     		  System.out.println(str11);
+     		  System.out.println(str22);
+
+
+		String str44 = "how to do in java provides java reading materials";
+		String newStr = str44.replaceAll("\\s", "");   
+		System.out.println(newStr);
+
+		}
+
+}
