@@ -1,0 +1,21 @@
+import java.util.*;
+
+class InputValidation
+{
+
+	public static void main(String []args)
+	{
+		Scanner sc=new Scanner(System.in);
+		try{
+			System.out.println("Enter your registration number");
+			int regno=sc.nextInt();
+		}
+		catch(Exception ex)
+		{
+			System.out.println("Not a Valid Input");
+		}
+
+	}
+
+
+}
