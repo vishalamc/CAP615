@@ -1,0 +1,30 @@
+class Main
+{
+
+	public static void main(String []args)
+	{
+		Vehicle e1=new Vehicle("Mahindra suv 700","White");
+		Vehicle e2=new Vehicle(e1);
+		System.out.println("Vehicle Model: "+e1.vehicleModel+"Vehicle Color: "+e1.vehicleColor);
+		e2.vehicleColor="Black";
+		System.out.println("Vehicle Model: "+e2.vehicleModel+"Vehicle Color: "+e2.vehicleColor);
+	}
+
+
+}
+class Vehicle
+{
+	String vehicleModel;
+	String vehicleColor;
+	Vehicle(String vehicleModel,String vehicleColor)
+	{
+		this.vehicleModel=vehicleModel;
+		this.vehicleColor=vehicleColor;
+	}
+
+	Vehicle(Vehicle e)
+	{
+		vehicleModel=e.vehicleModel;
+		vehicleColor=e.vehicleColor;
+	}	
+}
