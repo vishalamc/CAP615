@@ -1,0 +1,25 @@
+class Main
+{
+
+	public static void main(String []args)
+	{
+		Derived d1=new Derived();
+		d1.getId();
+	}
+}
+class Base 
+{
+
+	int id=1234;
+	
+}
+class Derived extends Base
+{
+
+	int id=5678;
+	void getId()
+	{
+		System.out.println(super.id);
+	}
+
+}
