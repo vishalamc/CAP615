@@ -1,9 +1,11 @@
+// Example of Super Keyword
 class Main
 {
 
 	public static void main(String []args)
 	{
 		Derived d1=new Derived();
+		d1.display();
 		d1.getId();
 	}
 }
@@ -11,15 +13,34 @@ class Base
 {
 
 	int id=1234;
-	
+	Base(int k)
+	{
+		System.out.println("Constructor in Base Class");
+	}
+	void display()
+	{
+		System.out.println("Method in Base Class");
+	}
 }
 class Derived extends Base
 {
 
 	int id=5678;
+	Derived()
+	{
+		super(5);
+		System.out.println("Constructor in Derived Class");
+	}
+	void display()
+	{
+		super.display();
+		System.out.println("Method in Derived Class");
+	}
 	void getId()
 	{
-		System.out.println(super.id);
+		System.out.println("Data member in Derived class: "+id);
+		System.out.println("Data member in Base class: "+super.id);
 	}
 
 }
+
