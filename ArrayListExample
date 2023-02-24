@@ -1,0 +1,31 @@
+import java.util.*;
+
+class Music{
+    		private String Name;
+   		private String Type;
+    		private String Singer;
+
+     	public Music(String Name, String Type,String Singer) 
+	{
+        		this.Name = Name;
+        		this.Type = Type;
+        		this.Singer = Singer;
+
+    	}
+   	  public String toString()
+	{
+        	return "Music: "+Name+" Type: "+Type+" Singer: "+Singer;
+    	}
+}
+ class Main
+{
+	public static void main(String []args)
+	{
+		ArrayList<Music> list=new ArrayList<Music>();
+		Music m1=new Music("Deewana","Hindi","Sonu Nigam");
+		Music m2=new Music("Rafi Anmol Ratan","Hindi","Md. Rafi");
+		list.add(m1);list.add(m2);
+		System.out.println(list);
+	}
+
+}
