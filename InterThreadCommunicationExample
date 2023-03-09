@@ -1,0 +1,84 @@
+class ChatApp
+{
+	 int i;	
+ 	boolean flag = false; // flag will be true when data deliver is over.
+	synchronized void deliver(int i)
+	{
+ 		if(flag)
+		{
+ 			try
+ 			{
+  			wait(); // Wait till a notification is received from Thread2. 	 
+			 }
+ 			catch(Exception ie) {	}
+		     }
+  		 this.i = i;	
+  		 System.out.println("Data Delivered: " +i);
+		 flag = true; 
+   		notify(); // When data deliver is over, it will notify Thread2 to use it.
+		try {
+			Thread.sleep(5000);
+		} catch (Exception e) {}
+	 }
+	synchronized int receive()
+	{
+		if(!flag)
+		{
+			try {
+				 wait(); // Wait till a notification is received from Thread1.	
+			    }
+			catch(Exception ie){}
+		}
+	
+		System.out.println("Data Received: " + i); 
+ 		flag = false; // It will store false into flag when data is received.
+  		notify(); // When data received is over, it will notify Thread1 to produce next data.
+		try {
+			Thread.sleep(5000);
+		} catch (Exception e) {}
+  		
+	return i;
+	 }
+}
+class Thread1 extends Thread
+{
+	ChatApp obj;
+ 	Thread1(ChatApp obj)
+ 	{
+  		this.obj = obj;
+ 	}
+	public void run()
+	{
+		for(int j = 1; j <= 5; j++){
+ 				obj.deliver(j); 
+				
+ 				 }
+	}	
+}
+class Thread2 extends Thread 
+{
+	ChatApp obj;
+	Thread2(ChatApp obj)
+	{
+ 		this.obj = obj;
+	}
+	public void run()
+	{
+		for(int k = 0; k <= 5; k++){
+				obj.receive();
+				}
+	 }
+}
+class Main
+{
+	public static void main(String[] args) 
+	{
+		ChatApp c1 = new ChatApp(); 
+
+		Thread1 t1 = new Thread1(c1);
+		Thread2 t2 = new Thread2(c1);
+
+  		t1.start();
+  		t2.start();
+ 	}
+}
