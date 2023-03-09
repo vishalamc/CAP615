@@ -1,0 +1,47 @@
+class table
+{
+//synchronized
+synchronized void printTable(int n){
+   for(int i=1;i<=5;i++){  
+     System.out.println(n*i);  
+     try{  
+      Thread.sleep(500);  
+     }catch(Exception e){System.out.println(e);}  
+   }  
+  
+ }  
+}
+class MultiplicationTableThread1 extends Thread
+{  
+table t;
+MultiplicationTableThread1(table t)
+{
+this.t=t;
+}
+public void run(){  
+t.printTable(5);  
+}  
+  
+}  
+class MultiplicationTableThread2 extends Thread
+{  
+table t;
+MultiplicationTableThread2(table t)
+{
+this.t=t;
+}
+public void run(){  
+t.printTable(100);  
+}  
+}  
+  
+class Main{  
+public static void main(String args[])
+{  
+table t1=new table();
+MultiplicationTableThread1 th1=new MultiplicationTableThread1(t1);  
+MultiplicationTableThread2 th2=new MultiplicationTableThread2(t1); 
+th1.start();  
+th2.start();  
+}  
+}  
